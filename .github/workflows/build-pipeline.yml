@@ -10,6 +10,7 @@ on:
     branches:
       - master
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -46,6 +47,22 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: awesome-calculator
-        path: src/dist    
+        path: src/dist
 
+  install-wheel:
+    needs: build  # Ensures this job only runs after the build job completes
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
+    - name: Download the .whl artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: awesome-calculator
+        path: ./dist  # Downloads the artifact to a folder named 'dist'
+
+    - name: Install the wheel file
+      run: |
+        cd ./dist
+        pip install awesome_calculator-*.whl  # This will install the wheel file

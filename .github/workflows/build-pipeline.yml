@@ -53,7 +53,7 @@ jobs:
     needs: build  # Ensures this job only runs after the build job completes
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
+    - name: Checkout code 
       uses: actions/checkout@v2
 
     - name: Download the .whl artifact

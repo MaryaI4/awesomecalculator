@@ -68,4 +68,4 @@ jobs:
       - name: Install the wheel file
         run: |
           cd /home/runner/work/awesomecalculator/awesomecalculator/dist
-          pip install awesome_calculator-*.whl  # Install the wheel file
+          pip install MaryaI4-1.0.0-py3-none-any.whl  # Install the wheel file
